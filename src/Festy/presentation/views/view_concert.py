@@ -12,7 +12,6 @@ def concert_list(request):
     serializer = ConcertSerializer(concerts, many=True)
     return Response(serializer.data)
 
-
 @api_view(['POST'])
 def concert_create(request):
 #    Create a new concert.
@@ -21,7 +20,6 @@ def concert_create(request):
         serializer.save()
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
-
 
 @api_view(['GET'])
 def concert_detail(request, concert_id):
@@ -32,7 +30,6 @@ def concert_detail(request, concert_id):
         return Response(status=404)
     serializer = ConcertSerializer(concert)
     return Response(serializer.data)
-
 
 @api_view(['PUT'])
 def concert_update(request, concert_id):
@@ -46,7 +43,6 @@ def concert_update(request, concert_id):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors, status=400)
-
 
 @api_view(['DELETE'])
 #    Delete a concert by ID.
