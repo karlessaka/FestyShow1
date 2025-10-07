@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 
@@ -42,13 +43,14 @@ class Booking(models.Model):
     user_name = models.CharField(max_length=50)
     user_email = models.EmailField()
     code_booking = models.CharField(max_length=20, unique=True)
+    booking_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"Booking for {self.user_name} - {self.concert.title} at {self.concert.location} enjoy!"
+        return f"Booking for {self.user_name} - {self.concert.title} at {self.concert.location} - {self.booking_date}"
     
 
 
 
 
-    
+
 
