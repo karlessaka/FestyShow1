@@ -2,6 +2,12 @@ from django.contrib import admin
 from .metier.model.models import *
 
 # Register your models here.
+class AdministratorAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'phone', 'is_staff', 'is_active')
+    search_fields = ('username', 'email', 'phone')
+    list_filter = ('is_staff', 'is_active')
+    ordering = ('username',)
+
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('Full_name', 'bio', 'style', 'email', 'link')
     search_fields = ('Full_name', 'style')
@@ -26,3 +32,4 @@ class BookingAdmin(admin.ModelAdmin):
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(Concert, ConcertAdmin)
 admin.site.register(Booking, BookingAdmin)
+admin.site.register(Administrator, AdministratorAdmin)

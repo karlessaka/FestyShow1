@@ -10,13 +10,14 @@ class Administrator(AbstractUser):
     def __str__(self):
         return self.username
 
+
 class Artist(models.Model):
     style_choices = [
-            ("ROCK", "Rock"),
-            ("JAZZ", "Jazz"),
-            ("POP", "Pop"),
-            ("RAP", "Rap"),
-        ]
+        ("ROCK", "Rock"),
+        ("JAZZ", "Jazz"),
+        ("POP", "Pop"),
+        ("RAP", "Rap"),
+    ]
     bio = models.TextField(max_length=500)
     link = models.URLField(max_length=200)
     Full_name = models.CharField(max_length=30)
@@ -25,7 +26,7 @@ class Artist(models.Model):
 
     def __str__(self):
         return self.Full_name
-    
+
 
 class Concert(models.Model):
     title = models.CharField(max_length=50)
@@ -36,7 +37,7 @@ class Concert(models.Model):
 
     def __str__(self):
         return f"{self.artist.Full_name} - {self.date_time} at {self.location}"
-    
+
 
 class Booking(models.Model):
     concert = models.ForeignKey(Concert, on_delete=models.CASCADE)
@@ -47,10 +48,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.user_name} - {self.concert.title} at {self.concert.location} - {self.booking_date}"
-    
-
-
-
-
-
-
