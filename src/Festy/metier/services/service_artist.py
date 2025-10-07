@@ -1,4 +1,4 @@
-from Festy.data.repository.repository_artist import RepositoryArtist
+from Festy.data_access.repository.repository_artist import RepositoryArtist
 
 class ArtistService:
     def __init__(self):
