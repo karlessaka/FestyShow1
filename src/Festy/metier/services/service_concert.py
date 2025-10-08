@@ -1,4 +1,4 @@
-from src.Festy.data_access.repository.repository_concert import RepositoryConcert
+from Festy.data_access.repository.repository_concert import RepositoryConcert
 
 class ConcertService:
     def __init__(self):

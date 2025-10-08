@@ -1,4 +1,4 @@
-from Festy.data.repository.repository_booking import RepositoryBooking
+from Festy.data_access.repository.repository_booking import RepositoryBooking
 
 class BookingService:
     def __init__(self):
