@@ -4,6 +4,13 @@ from Festy.presentation.views.view_artist import artist_list, artist_create
 from Festy.presentation.views.view_concert import concert_list, concert_create, concert_update, concert_delete
 from Festy.presentation.views.view_booking import booking_list, booking_create, booking_detail, booking_update, booking_delete
 
+from Festy.presentation.views.view_rapport import (
+    rapport_booking_count,
+    rapport_bookings_list,
+    rapport_concert_full,
+    rapport_all_concerts
+)
+
 urlpatterns = [
     path('list_artist/',artist_list, name='list_artist'),
     path('create_artist/',artist_create, name='create_artist'), 
@@ -21,4 +28,16 @@ urlpatterns = [
     path('detail_booking/<int:booking_id>/', booking_detail, name='detail_booking'),
     path('update_booking/<int:booking_id>/', booking_update, name='update_booking'),
     path('delete_booking/<int:booking_id>/', booking_delete, name='delete_booking'),
+
+    # Nombre de réservations pour un concert
+    path('rapport/booking-count/<int:concert_id>/', rapport_booking_count, name='rapport_booking_count'),
+    
+    # Liste des personnes ayant réservé pour un concert
+    path('rapport/bookings-list/<int:concert_id>/', rapport_bookings_list, name='rapport_bookings_list'),
+    
+    # Rapport complet d'un concert (infos + nombre + liste)
+    path('rapport/concert-full/<int:concert_id>/', rapport_concert_full, name='rapport_concert_full'),
+    
+    # Statistiques de tous les concerts
+    path('rapport/all-concerts/', rapport_all_concerts, name='rapport_all_concerts'),
 ]
